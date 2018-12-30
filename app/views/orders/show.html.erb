@@ -31,7 +31,7 @@
             TOTAL:
           </th>
           <th>
-            $<%= @order.total_cents / 100.0%>
+            $<%= '%.2f' % (@order.total_cents.to_i/100.0) %>
           </th>
         </tr>
       </tfoot>
