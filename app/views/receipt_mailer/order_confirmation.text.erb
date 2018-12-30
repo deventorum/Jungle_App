@@ -1,0 +1,11 @@
+
+Thank you for your order. Your order <%= @order.id %> has been succesfully processed.
+===============================================
+ 
+<% @order.line_items.each do |order_item|%>
+Item Name: <%= order_item.product.name %>
+Quantity: <%= order_item.quantity %>
+Description: <%= order_item.product.description %>
+Unit Price $<%= '%.2f' % (order_item.item_price_cents.to_i/100.0) %>
+Total Price $<%= '%.2f' % (order_item.total_price_cents.to_i / 100.0) %>
+<% end %>
