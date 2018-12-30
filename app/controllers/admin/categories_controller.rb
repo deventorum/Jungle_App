@@ -1,4 +1,4 @@
-class Admin::CategoriesController < ApplicationController
+class Admin::CategoriesController < AdminController
   # frozen_string_literal: true
 
   def index
