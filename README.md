@@ -1,7 +1,6 @@
 # Jungle
 
-A mini e-commerce application built with Rails 4.2 and Stripe. PostgreSQL used as a database. 
-
+A mini e-commerce application built with Rails 4.2 and Stripe. PostgreSQL used as a database. Users can see their detailed order after the purchase and also receive a receipt via email. As a user, you can leave product review and rating for other people to see. Admins are able to create new product categories and add items to the store.
 
 ## Setup
 
