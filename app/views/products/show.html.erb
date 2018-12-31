@@ -22,8 +22,25 @@
           <dd><%= @product.quantity %></dd>
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
+          <dt>Average Rating</dt>
+          <dd><%= @product.reviews.average(:rating).present? ? @product.reviews.average(:rating).round(2) : "Not Rated" %></dd>
         </dl>
       </div>
+    </div>
+
+    <% if current_user %>
+      <%= form_for :reviews, url: product_reviews_path(@product, :review),  :html => {:class => "review-form"} do |form| %>
+        <h4>Review the Product</h4>
+        <%= form.hidden_field :product_id, :value => @product.id %>
+        <%= form.hidden_field :user_id, :value =>  current_user.id %>
+        <%= form.text_area :description, cols: 70, rows: 7,placeholder: "Write your review here", autofocus: true %>
+        <%= form.select :rating, options_for_select([["Rating", ""], "1", "2", "3", "4", "5"]) %>
+        <button type="submit" class="btn-review">Post Review</button>
+      <%end%> 
+    <% end %>
+
+    <div class="reviews">
+      <%= render 'reviews' %>      
     </div>
 
   </article>

@@ -1,3 +1,4 @@
+require 'faker'
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -131,6 +132,25 @@ cat3.products.create!({
   quantity: 23,
   price: 2_483.75
 })
+
+5.times do
+  name = Faker::Name.first_name
+  User.create(
+    first_name: name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email(name),
+    password_digest: BCrypt::Password.create(rand(1..1000000))
+  )
+end
+
+50.times do
+  Review.create(
+    product_id: rand(1..12),
+    user_id: rand(1..5),
+    description: Faker::TheITCrowd.quote,
+    rating: rand(1..5)
+  )
+end
 
 
 puts "DONE!"

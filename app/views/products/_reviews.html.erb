@@ -1,0 +1,18 @@
+<h4>User Reviews</h4>
+<% @product.reviews.order(created_at: :desc).each do |review|%>
+  <div class="review">
+    <header>
+      <h5><%= review.user.first_name %> <%= review.user.last_name %></h5>
+      <small>Created at <%= review.created_at %></small>
+    </header>
+    <div class="review-description">
+      <p><%= review.description %></p>
+    </div>
+    <footer>
+      <p class="review-rating">Rated <%=review.rating%> out of 5</p>
+      <% if current_user && current_user.id == review.user.id  %>
+        <%= link_to "Delete Review", product_review_path(@product, id:review.id), class: "delete-review btn-danger", method: :delete, data: { confirm: "Do you really want to delet this review?" } %>
+      <% end %>
+    </footer>
+  </div>
+<% end %>
