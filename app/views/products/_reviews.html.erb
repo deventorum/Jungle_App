@@ -1,0 +1,18 @@
+<h4>User Reviews</h4>
+<% @product.review.order(created_at: :desc).each do |review|%>
+  <div class="review">
+    <header>
+      <h5><%= review.user.first_name %> <%= review.user.last_name %></h5>
+      <p>Created at <%= review.created_at %></p>
+    </header>
+    <div class="review-description">
+      <p><%= review.description %></p>
+    </div>
+    <footer>
+      <p class="review-rating">Rated at <%=review.rating%> out of 5</p>
+      <% if current_user && current_user.id == review.user.id  %>
+        <button class="delete-review btn-danger">Delete Review</button>
+      <% end %>
+    </footer>
+  </div>
+<% end %>

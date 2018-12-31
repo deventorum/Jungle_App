@@ -26,6 +26,18 @@
       </div>
     </div>
 
+    <% if current_user %>
+      <%= form_for :reviews, :html => {:class => "review-form"} do |f| %>
+        <h4>Review the Product</h4>
+        <textarea autofocus maxlength="500"  placeholder="Write your review here" rows="7" cols="70"></textarea>
+        <button type="submit" class="btn-review">New Review</button>
+      <%end%> 
+    <% end %>
+
+    <div class="reviews">
+      <%= render 'reviews' %>      
+    </div>
+
   </article>
 
 </section>
