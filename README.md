@@ -27,3 +27,8 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 * Stripe
 
 ## Screenshots
+
+!["This is JungleApp home page"](docs/Main_Page.png)
+!["This is an admin page to add new items or product categories to the store"](docs/Admin_Page.png)
+!["This is the page that show the details of your order"](docs/Order_Page.png)
+!["This a product page where signed users can post their reviews."](docs/Product_page.png)
